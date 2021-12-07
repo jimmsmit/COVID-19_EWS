@@ -12,6 +12,8 @@ These instructions go through the loading of the fitted models, pre-processing o
 To download and build the datasets run:
 
 
-Attempt | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11| #5 | #6 | #7 | #8 | #9 | #10 | #11
+column | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11| #12 | #13 | #14 | #15 | #16 | #17 | #18
 --- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---|--- |--- |--- |--- |--- |--- |---
-Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269| 289 | 285 | 287 | 287 | 272 | 276 | 269
+Variable | Sex | Age | Length-of-stay | O2 | O2 | SpO2/O2 | SpO2 | Heart rate | Systolic blood pressure | Respiratory rate | Temperature| AVPU | ΔSpO2 | ΔHeart rate | ΔSystolic blood pressure | ΔRespiratory rate | ΔTemperature | ΔSpO2/O2
+--- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---|--- |--- |--- |--- |--- |--- |---
+Unit | 0=female, 1=male | years | hours | 0=no, 1=yes | L/min | %/(L/min) | % | bpm | mmHg | /min | °C| - | % | bpm | mmHg | /min | °C | %/(L/min)

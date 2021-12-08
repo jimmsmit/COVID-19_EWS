@@ -9,7 +9,12 @@ patients.
 ## Data
 These instructions go through the loading of the fitted models, pre-processing of the raw data and evaluation of our model on your own dataset.
 
-To download and build the datasets run:
+Your own dataset is split in a part used to fit a calibrator (calibration dataset) and a part used to validate the model (validation dataset). 
+Both the datasets need to be imported in the main file, where the path where the data is saved needs to be specified. These datasets need to be [N x M] sized CSV files, where N (nuber of rows) depicts the individual patient samples and M (number of columns) the variables collected for each sample. Also the corresponding [N x 1] label vectors (0=negative, 1=positive) need to be loaded. 
+Label the samples as positive if unplanned ICU admission or death occurred within 24 hours from the moment of sampling, and negative otherwise.
+
+Furthermore, make sure the columns of the datasets are in the correct order and the values are in the correct units (see the table below).
+
 
 
 column | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11| #12 | #13 | #14 | #15 | #16 | #17 | #18
@@ -19,6 +24,11 @@ Unit | 0=female, 1=male | years | hours | 0=no, 1=yes | L/min | %/(L/min) | % | 
 
 
 ## Validate model
-running the following code 
+By running the following code, the 
+- trained model presented in the study, as well as the fitted normalization and imputation functions are loaded
+- loaded datasets are preprocessed (normalized and imputed) 
+- a calibrator is fitted using the predictions of the trained model to the calibration dataset and the actual labels
+- predictions are made for the validation dataset using the model-calibrator pair 
+- These predictions are evaluated for discrimination and calibration
 
 python main.py

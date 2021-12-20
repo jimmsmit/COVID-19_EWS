@@ -24,11 +24,12 @@ Unit | 0=female, 1=male | years | hours | 0=no, 1=yes | L/min | %/(L/min) | % | 
 
 
 ## Validate model
-By running the following code, the 
+By running the main code, the 
 - trained model presented in the study, as well as the fitted normalization and imputation functions are loaded
-- loaded datasets are preprocessed (normalized and imputed) 
+- uploaded datasets (so your external data) are preprocessed, i.e. normalized and imputed, and split in a training and a calibration set
 - a calibrator is fitted using the predictions of the trained model to the calibration dataset and the actual labels
 - predictions are made for the validation dataset using the model-calibrator pair 
 - These predictions are evaluated for discrimination and calibration
 
+## Run
 python main.py

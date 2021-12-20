@@ -9,8 +9,8 @@ patients.
 ## Data
 These instructions go through the loading of the fitted models, pre-processing of the raw data and evaluation of our model on your own dataset.
 
-Your own dataset is split in a part used to fit a calibrator (calibration dataset) and a part used to validate the model (validation dataset). 
-Both the datasets need to be imported in the main file, where the path where the data is saved needs to be specified. These datasets need to be [N x M] sized CSV files, where N (nuber of rows) depicts the individual patient samples and M (number of columns) the variables collected for each sample. Also the corresponding [N x 1] label vectors (0=negative, 1=positive) need to be loaded. 
+You need to upload 2 datasets, both a set used to fit a calibrator (calibration dataset) and a set used to validate the model (validation dataset). 
+Both the datasets need to be imported in the main file, where the path where the data is saved needs to be specified. These datasets need to be [N x M] sized tables, where N (nuber of rows) depicts the individual patient samples and M (number of columns) the variables collected for each sample. Also the corresponding [N x 1] label vectors (0=negative, 1=positive) need to be loaded. 
 Label the samples as positive if unplanned ICU admission or death occurred within 24 hours from the moment of sampling, and negative otherwise.
 
 Furthermore, make sure the columns of the datasets are in the correct order and the values are in the correct units (see the table below).
@@ -25,10 +25,10 @@ Unit | 0=female, 1=male | years | hours | 0=no, 1=yes | L/min | %/(L/min) | % | 
 
 ## Validate model
 By running the main code, the 
-- trained model presented in the study, as well as the fitted normalization and imputation functions are loaded
-- uploaded datasets (so your external data) are preprocessed, i.e. normalized and imputed, and split in a training and a calibration set
-- a calibrator is fitted using the predictions of the trained model to the calibration dataset and the actual labels
-- predictions are made for the validation dataset using the model-calibrator pair 
+- trained model presented in the study, as well as the fitted normalization and imputation functions are loaded from the 'dependencies' directory
+- your uploaded datasets are preprocessed, i.e. normalized and imputed
+- a calibrator is fitted using the predictions of the trained model to the calibration dataset and the corresponding labels
+- predictions are made for the validation dataset using the resulting model-calibrator pair 
 - These predictions are evaluated for discrimination and calibration
 
 ## Run

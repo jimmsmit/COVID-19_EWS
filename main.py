@@ -25,9 +25,11 @@ from functions import *
 if __name__ == '__main__':
     
     # ==== data import ===
+    #Here, fill in the functions to import the data (e.g. pandas csv_read() or excel_read() ), with  the correct file paths
+    
     # Validation data
-    raw_val_data
-    labels
+    raw_val_data = 
+    labels = 
     
     #Calibration data
     raw_cali_data

@@ -39,11 +39,11 @@ if __name__ == '__main__':
     # import dependencies
     
     scaler = pickle.load(open('dependencies/scaler.sav', 'rb'))
-    model = pickle.load(open('dependencies/model.sav', 'rb'))
-    imputer_sex = pickle.load(open('dependencies/imputer_sex.sav', 'rb'))
-    imputer_avpu = pickle.load(open('dependencies/imputer_avpu.sav', 'rb'))
-    initial_imputer_sex = pickle.load(open('dependencies/initial_imputer_sex.sav', 'rb'))
-    initial_imputer_avpu = pickle.load(open('dependencies/initial_imputer_avpu.sav', 'rb'))
+    model = pickle.load(open('dependencies/total_RF_model.sav', 'rb'))
+    imputer_sex = pickle.load(open('dependencies/sex_imputer.sav', 'rb'))
+    imputer_avpu = pickle.load(open('dependencies/avpu_imputer.sav', 'rb'))
+    initial_imputer_sex = pickle.load(open('dependencies/sex_imputer_initial.sav', 'rb'))
+    initial_imputer_avpu = pickle.load(open('dependencies/avpu_imputer_initial.sav', 'rb'))
     imputer = pickle.load(open('dependencies/imputer.sav', 'rb'))
     
     # Initiate class with imported data

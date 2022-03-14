@@ -21,6 +21,14 @@ from matplotlib import pyplot as plt
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
 
+import math
+import sys
+
+from math import ceil
+
+from scipy import linalg
+import scipy.stats
+
 from Class import COVID_19_EWS
 from functions import *
 

@@ -172,7 +172,31 @@ def Validation_slope_intercept(preds,labels):
     return inter, inter_low, inter_high, slope, slope_low, slope_high
 
 
+def lowess_bell_shape_kern(x, y, tau = .005):
+    """lowess_bell_shape_kern(x, y, tau = .005) -> yest
+    Locally weighted regression: fits a nonparametric regression curve to a scatterplot.
+    The arrays x and y contain an equal number of elements; each pair
+    (x[i], y[i]) defines a data point in the scatterplot. The function returns
+    the estimated (smooth) values of y.
+    The kernel function is the bell shaped function with parameter tau. Larger tau will result in a
+    smoother curve. 
+    """
+    n = len(x)
+    yest = np.zeros(n)
 
+    #Initializing all weights from the bell shape kernel function    
+    w = np.array([np.exp(- (x - x[i])**2/(2*tau)) for i in range(n)])     
+    
+    #Looping through all x-points
+    for i in range(n):
+        weights = w[:, i]
+        b = np.array([np.sum(weights * y), np.sum(weights * y * x)])
+        A = np.array([[np.sum(weights), np.sum(weights * x)],
+                    [np.sum(weights * x), np.sum(weights * x * x)]])
+        theta = linalg.solve(A, b)
+        yest[i] = theta[0] + theta[1] * x[i] 
+
+    return yest
 
 def prepare_calibration_plot(labels,predictions):
     """

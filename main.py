@@ -18,6 +18,8 @@ from sklearn.utils import resample
 from sklearn.calibration import calibration_curve
 from matplotlib import pyplot as plt
 
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
 
 from Class import COVID_19_EWS
 from functions import *

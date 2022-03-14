@@ -61,6 +61,13 @@ def imputer(X,imputer):
     return X_norm_imp
 
 
+def logit(p):
+    return np.log(p) - np.log(1 - p)
+
+def inv_logit(p):
+    return np.exp(p) / (1 + np.exp(p))
+
+
 def calibrate(model,X_cali,labels_cali):
     """""
     Returs model-calibrator pair to make calibrated predictions.

@@ -235,7 +235,7 @@ def prepare_calibration_plot(labels,predictions):
         fraction_of_positives, mean_predicted_value = \
             calibration_curve(labels_boot, pred_boot, n_bins=n_bins,strategy=strategy)
         try:
-            y = smooth(mean_predicted_value, fraction_of_positives)
+            y = lowess_bell_shape_kern(mean_predicted_value, fraction_of_positives)
             interp_frac = np.interp(mean, mean_predicted_value, y)
         except:
             print('singular matrix')
@@ -256,37 +256,6 @@ def prepare_calibration_plot(labels,predictions):
     
     return mean_predicted_value,y,fracs_lower,fracs_upper
     
-def smooth(x, y, tau = .005):
-    """
-    Fits a nonparametric regression curve to a scatterplot. 
-    Returns the estimated (smooth) fractions of the observed positives.
-    The kernel function is the bell shaped function with parameter tau. 
-    
-        Parameters:
-                x (numpy array): The mean predicted probability in each bin, as returned by .calibration.calibration_curve
-                y (numpy array):  The fractions of positives in each bin, as returned by .calibration.calibration_curve
-                tau (float): Parameter of bell-shaped kernel. Larger tau will result in a smoother curve. 
-        Returns:
-                y_est (numpy array): smoothed fractions of positives in each bin
-    
-    """
-    n = len(x)
-    yest = np.zeros(n)
-
-    #Initializing all weights from the bell shape kernel function    
-    w = np.array([np.exp(- (x - x[i])**2/(2*tau)) for i in range(n)])     
-    
-    #Looping through all x-points
-    for i in range(n):
-        weights = w[:, i]
-        b = np.array([np.sum(weights * y), np.sum(weights * y * x)])
-        A = np.array([[np.sum(weights), np.sum(weights * x)],
-                    [np.sum(weights * x), np.sum(weights * x * x)]])
-        theta = linalg.solve(A, b)
-        yest[i] = theta[0] + theta[1] * x[i] 
-
-    return yest
-
 
 def plot_calibration_curve(predictions,labels,mean_predicted_value,y,fracs_lower,fracs_upper):
     """

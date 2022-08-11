@@ -20,7 +20,7 @@ Furthermore, make sure the columns of the datasets are in the correct order and 
 column | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11| #12 | #13 | #14 | #15 | #16 | #17 | #18
 --- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---|--- |--- |--- |--- |--- |--- |---
 Variable | Sex | Age | Length-of-stay | O2 | O2 | SpO2/O2 | SpO2 | Heart rate | Systolic blood pressure | Respiratory rate | Temperature| AVPU | ΔSpO2 | ΔHeart rate | ΔSystolic blood pressure | ΔRespiratory rate | ΔTemperature | ΔSpO2/O2
-Unit | 0=female, 1=male | years | hours | 0=no, 1=yes | L/min | %/(L/min) | % | bpm | mmHg | /min | °C| - | % | bpm | mmHg | /min | °C | %/(L/min)
+Unit | 0=female, 1=male | years | hours | 0=no, 1=yes | L/min | %/(L/min) | % | bpm | mmHg | /min | °C| A=0,V=1,P=2,U=3 | % | bpm | mmHg | /min | °C | %/(L/min)
 
 
 ## Validate model
